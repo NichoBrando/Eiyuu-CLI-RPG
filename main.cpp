@@ -5,7 +5,6 @@ using namespace std;
 
 int main()
 {
-    Character myChar(100);
-    cout << "My HP : " << myChar.getHP();
+    Character myChar;
     return 1;
 }

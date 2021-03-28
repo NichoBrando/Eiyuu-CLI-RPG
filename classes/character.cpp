@@ -4,14 +4,21 @@
 
 using namespace std;
 
-Character::Character(int HP /*, string charName */){
-    currentHP = HP;
+void Character::setInitialHP(int HP){
     maxHP = HP;
-    //name = name;
-}
+    currentHP = HP;
+};
+
+void Character::setName(string charName){
+    name = charName;
+};
 
 int Character::getHP(){
     return currentHP;  
+}
+
+int Character::getFullHP(){
+    return maxHP;  
 }
 
 void Character::receiveDamage(int dmg){
@@ -23,6 +30,15 @@ bool Character::isDeath(){
     return currentHP == 0;
 }
 
-/* string Character::getName(){
+string Character::getName(){
     return name;
-} */
+}
+
+void Character::showCharacterStatusBar(){
+    cout << name << endl << currentHP << "/" << maxHP << endl;  
+}
+
+int Character::dealDamage(int dmg){
+    if(isCritical()) return dmg * 2;
+    return dmg;
+}
